@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input{
+            outline: none;
+        }
+        input.active {
+            border-color: blue;
+        }
+
+        input.error {
+            border-color: red;
+        }
+
+        input.success {
+            border-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <form id="form-group">
+        <input type="text" id="name" placeholder="first name">
+        <input type="text" id="lastName" placeholder="last name">
+        <button id="submit">Submit</button>
+    </form>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("#form-group input").on("focus", function () {
+                $(this).addClass("active").removeClass("error success");
+            })
+            $("#form-group input").on("blur", function () {
+                let val = $(this).val();
+                if (val !== "") {
+                    $(this).addClass("success").removeClass("active error");
+                } else {
+                    $(this).addClass("error").removeClass("active success");
+                }
+            });
+        })
+            ;
+    </script>
+</body>
+
+</html>
