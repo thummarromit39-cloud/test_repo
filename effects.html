@@ -1,43 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        #box{
+        #box {
             background-color: lightblue;
             height: 100px;
             width: 100px;
-            margin:10px;
+            margin: 10px;
         }
     </style>
 </head>
+
 <body>
 
     <button id="btn1">expand</button>
     <button id="btn2">resize</button>
 
-    <div id="box">
-    </div>
+    <div id="box"></div>
+
+    <button id="show">show</button>
+    <div id="div1" style="width:90px;height:90px;display:none;background-color:black;"></div><br>
+    <div id="div2" style="width:90px;height:90px;display:none;background-color:green;"></div><br>
+    <div id="div3" style="width:90px;height:90px;display:none;background-color:blue;"></div><br>
+    <div id="div4" style="width:90px;height:90px;display:none;background-color:red;"></div><br>
+    <div id="div5" style="width:90px;height:90px;display:none;background-color:purple;"></div><br>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
         integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-        <script>
-            $(document).ready(function(){
-                $("#btn1").on("click",function(){
+    <script>
+        $(document).ready(function () {
+            $("#btn1").on("click", function () {
+                $("#box").animate({
+                    height: "300px"
+                });
+                $("#btn2").on("click", function () {
                     $("#box").animate({
-                        height: "300px"
+                        height: "100px"
                     });
-                    $("#btn2").on("click",function(){
-                        $("#box").animate({
-                            height: "100px"
-                        });
-                    })
+                    $("#show").on("click", function () {
+                        $("#div1").delay(slow).fadeIn();
+                        $("#div2").delay(fast).fadeIn();
+                        $("#div3").delay(3000).fadeIn();
+                        $("#div4").delay(4000).fadeIn();
+                        $("#div5").delay(5000).fadeIn();
+                    });
+
+                });
             });
         });
-        </script>
+    </script>
 </body>
+
 </html>
